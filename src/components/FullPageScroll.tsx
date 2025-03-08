@@ -1,7 +1,7 @@
 /*
  * @Author: SanXiaoXing
  * @Date: 2025-03-06 22:58:12
- * @LastEditTime: 2025-03-09 01:20:08
+ * @LastEditTime: 2025-03-09 03:33:22
  * @Description: 全屏滚动组件，可根据当前背景进行调节滚动条颜色以及字体颜色
  * CC BY-NC-SA 4.0
  */
@@ -14,8 +14,34 @@ import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 const FullPageScroll = ({ sections }: { sections: React.ReactNode[] }) => {
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [touchStartY, setTouchStartY] = useState(0);
+  const touchThreshold = 50; // 滑动阈值
   const isDarkBackground = currentSection % 2 === 0; // 判断当前背景色
 
+
+  // 新增触摸事件处理
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartY(e.touches[0].clientY);
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (isScrolling) return;
+    
+    const touchEndY = e.changedTouches[0].clientY;
+    const deltaY = touchEndY - touchStartY;
+    
+    if (Math.abs(deltaY) > touchThreshold) {
+      setIsScrolling(true);
+      const direction = deltaY > 0 ? -1 : 1;
+      const newSection = Math.min(
+        Math.max(currentSection + direction, 0),
+        sections.length - 1
+      );
+      
+      setCurrentSection(newSection);
+      
+      setTimeout(() => setIsScrolling(false), 800);
+    }
+  };
   // 处理滚轮事件
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
@@ -41,7 +67,10 @@ const FullPageScroll = ({ sections }: { sections: React.ReactNode[] }) => {
   };
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      style={{ touchAction: 'none' }} >
       {/* 导航指示器 - 根据背景切换颜色 */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 space-y-2 hidden md:block">
         <button 
