@@ -1,3 +1,20 @@
 {
-    "docthis.includeAuthorTag": true
+    "docthis.includeAuthorTag": true,
+        // 头部注释
+    "fileheader.customMade": {
+        // Author字段是文件的创建者 可以在specialOptions中更改特殊属性
+        "Author": "SanXiaoXing", // 同时获取用户名与邮箱
+        "Date": "Do not edit", // 文件创建时间(不变)
+        "LastEditTime": "Do not edit", // 文件最后编辑时间
+        // 输出相对路径，类似: /文件夹名称/src/index.js
+        "Description": "", // 介绍文件的作用、文件的入参、出参。
+        "custom_string_obkoro1_copyright": "CC BY-NC-SA 4.0"
+        // "custom_string_obkoro1_copyright": "Copyright (c) ${now_year} by 写死的公司名/用户名, All Rights Reserved. "
+    },
+    // 函数注释
+    "fileheader.cursorMode": {
+        "description": "", // 函数注释生成之后，光标移动到这里
+        "param": "", // param 开启函数参数自动提取 需要将光标放在函数行或者函数上方的空白行
+        "return": "",
+    }
 }

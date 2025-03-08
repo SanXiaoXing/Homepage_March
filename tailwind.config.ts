@@ -2,7 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 const colors = require("tailwindcss/colors");
 const {
-  default: flattenColorPalette,
+    default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
 /** @type {import('tailwindcss').Config} */
@@ -26,7 +26,8 @@ module.exports = {
             },
             fontFamily: {
                 custom: ['emblema-one', 'sans-serif'],
-                emblema: ['var(--font-emblema-one)']
+                emblema: ['var(--font-emblema-one)'],
+                simsun: ['SimSun', 'NSimSun', 'sans-serif'],
             }
         }
     },

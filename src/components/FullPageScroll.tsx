@@ -1,3 +1,11 @@
+/*
+ * @Author: SanXiaoXing
+ * @Date: 2025-03-06 22:58:12
+ * @LastEditTime: 2025-03-09 01:20:08
+ * @Description: 全屏滚动组件，可根据当前背景进行调节滚动条颜色以及字体颜色
+ * CC BY-NC-SA 4.0
+ */
+
 'use client'
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -56,7 +64,7 @@ const FullPageScroll = ({ sections }: { sections: React.ReactNode[] }) => {
       {/* 分页内容 */}
       <div 
         className="transition-transform duration-700 ease-[cubic-bezier(0.33,1,0.68,1)]"
-        style={{ transform: `translateY(-${currentSection * 100}vh` }}
+        style={{ transform: `translateY(-${currentSection * 100}vh)` }}
       >
         {sections.map((section, index) => (
           <motion.div

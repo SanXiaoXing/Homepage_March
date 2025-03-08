@@ -1,3 +1,11 @@
+/*
+ * @Author: SanXiaoXing
+ * @Date: 2025-03-08 21:57:06
+ * @LastEditTime: 2025-03-08 23:46:36
+ * @Description: 标签栏离开与回来提示组件
+ * CC BY-NC-SA 4.0
+ */
+
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
