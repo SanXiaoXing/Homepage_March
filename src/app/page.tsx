@@ -20,8 +20,7 @@ import SocialIcons from "@/components/SocialIcons";
 const words = ["代码生花映流光，星河无界共徜徉。", "星辉璀璨迎君往，诗行盛放待君藏。", "墨香盈袖启新章，云阁静候知音赏。", "算法生花映苍穹，智芯流转纳万象。", "量子跃迁启新章，星河无界任君航。"];
 export default function Home() {
   const sections = [
-    
-      <div key="1">
+      <div key="1" className="transform-gpu select-none">
         <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
         <h1 className="font-emblema font-bold mb-6 select-none">
           <MirrorText text="SanXiaoXing" />
@@ -36,11 +35,11 @@ export default function Home() {
         </BackgroundLines>
       </div>,
 
-    <div key="2">
+    <div key="2" className="transform-gpu select-none">
       <h2 className="font-emblema font-bold mb-8">
         <MirrorText text="Projects" />
       </h2>
-      <p className="text-3xl md:text-3xl lg:text-4xl items-center justify-center ">
+      <div className="text-3xl md:text-3xl lg:text-4xl items-center justify-center ">
       这里有更多精彩{" "}
         <LinkPreview
             url="https://projects.sanxiaoxing.cn"
@@ -49,31 +48,31 @@ export default function Home() {
             Projects
         </LinkPreview>
         {" "}等你发现，快来 {" "}<p className='font-emblema inline-block'>click</p>查看全部！
-      </p>
+      </div>
       
       <BackgroundBeams />
     </div>,
-    <div key="3">
+    <div key="3" className="transform-gpu select-none">
       <h2 className="font-emblema font-bold mb-10">
         <MirrorText text="Contact" />
       </h2>
       <SocialIcons />
-      <footer className="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm py-3  border-gray-100 dark:border-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-            {/* 原有内容保持不变 */}
-            <div className="inline-flex items-center gap-1">
-              由<em className="font-emblema not-italic">SanXiaoXing</em>创建
-              <span className="mx-1">•</span>
-              <a
-                href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-600 transition-colors"
-              >
-                CC BY-NC-SA 4.0
-              </a>
-            </div>
+      <div className="mt-auto bottom-0"> {/* 添加 margin-top: auto 使 footer 保持在底部 */}
+        <footer className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm py-3 border-t border-gray-100 dark:border-gray-800 mt-10">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <div className="inline-flex items-center gap-1">
+                由<em className="font-emblema not-italic">SanXiaoXing</em>创建
+                <span className="mx-1">•</span>
+                <a
+                  href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition-colors"
+                >
+                  CC BY-NC-SA 4.0
+                </a>
+              </div>
             <span className="hidden sm:inline">•</span>
             <a
               href="https://github.com/SanXiaoXing/Homepage_March"
@@ -89,6 +88,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      </div>
       <BackgroundBeams />
     </div>
     

@@ -14,6 +14,9 @@ module.exports = {
             animation: {
                 aurora: "aurora 60s linear infinite",
             },
+            scroll: {
+                smooth: 'smooth',
+            },
             keyframes: {
                 aurora: {
                     from: {
